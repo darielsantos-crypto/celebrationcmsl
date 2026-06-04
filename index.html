@@ -10,77 +10,123 @@
 <meta property="og:image" content="assets/miniatura-site.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#080603">
-<link rel="preload" as="image" href="assets/fundo.webp">
+<meta name="theme-color" content="#060402">
+<link rel="preload" as="image" href="assets/fundo-principal.webp">
+<link rel="preload" as="image" href="assets/hero-bailarina.webp">
 <link rel="preload" as="image" href="assets/logo-branca.webp">
 <link rel="preload" as="image" href="assets/logo-oficial.webp">
-<link rel="preload" as="image" href="assets/bailarina-dourada.webp">
-<link rel="preload" as="video" href="assets/bg-video.mp4">
 <style>
 @font-face{font-family:TrajanCelebration;src:url("assets/TrajanPro-Bold.otf") format("opentype");font-display:swap}
-:root{--bg:#080603;--gold:#dfb25d;--gold-soft:#f5e8c8;--text:#f6efdc;--muted:#d8c69d;--line:rgba(223,178,93,.20);--head:TrajanCelebration,Georgia,"Times New Roman",serif;--body:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+:root{--bg:#060402;--gold:#dfb25d;--gold2:#f7e5b4;--line:rgba(223,178,93,.28);--head:TrajanCelebration,Georgia,"Times New Roman",serif;--body:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;background:var(--bg)}
 body{margin:0;background:var(--bg);color:#fff;overflow-x:hidden;font-family:var(--body);user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 img,video{display:block;max-width:100%;pointer-events:none;-webkit-user-drag:none}
 a{text-decoration:none;color:inherit}
-.print-msg{display:none}
-.bg-video{position:fixed;inset:0;z-index:-8;overflow:hidden;background:#050402}.bg-video video{width:100%;height:100%;object-fit:cover;opacity:.23;filter:saturate(.92) brightness(.66)}
-.bg-wall{position:fixed;inset:0;z-index:-7;background:url("assets/fundo.webp") center top/cover no-repeat;opacity:.34;mix-blend-mode:screen;filter:saturate(.9) brightness(.8)}
-.bg-shade{position:fixed;inset:0;z-index:-6;background:linear-gradient(180deg,rgba(8,6,3,.20),rgba(8,6,3,.52) 42%,rgba(8,6,3,.94)),radial-gradient(circle at 50% 6%,rgba(223,178,93,.08),transparent 34%)}
-.bg-glow{position:fixed;inset:-25%;z-index:-5;background:conic-gradient(from 180deg at 50% -10%,transparent 0 12deg,rgba(223,178,93,.05) 18deg,transparent 30deg,transparent 46deg,rgba(255,230,170,.028) 52deg,transparent 64deg);mix-blend-mode:screen;animation:haze 18s ease-in-out infinite alternate}
-.fx{position:fixed;inset:0;z-index:35;pointer-events:none;overflow:hidden}.spark{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;background:radial-gradient(circle,rgba(255,244,215,.95),rgba(224,178,93,.40) 38%,transparent 72%);opacity:.16;animation:twinkle var(--d) ease-in-out infinite;animation-delay:var(--delay)}
-.app{position:relative;max-width:820px;margin:0 auto;overflow:hidden;background:linear-gradient(180deg,rgba(8,6,3,.02),rgba(8,6,3,.72)),rgba(8,6,3,.40);box-shadow:0 0 90px rgba(0,0,0,.58)}
-.screen{min-height:100svh;padding:34px 20px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:22px}.screen.compact{min-height:auto;padding-top:58px;padding-bottom:58px}.screen.tight{min-height:auto;padding-top:28px;padding-bottom:28px}
-.reveal{opacity:0;transform:translateY(34px);transition:opacity .85s ease,transform .85s ease}.reveal.on{opacity:1;transform:none}
-.hero{position:relative;text-align:center}.hero-inner{position:relative;width:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:18px}.hero-art{width:min(84vw,540px);filter:drop-shadow(0 24px 30px rgba(0,0,0,.56));animation:heroFloat 5.8s ease-in-out infinite}.scroll{margin-top:2px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#e6d4aa;opacity:.82;animation:softFloat 2.8s ease-in-out infinite}
-.title{margin:0;text-align:center;font-family:var(--head);font-size:clamp(27px,6.8vw,43px);font-weight:700;line-height:1.05;letter-spacing:.02em;color:var(--gold-soft);text-shadow:0 10px 28px rgba(0,0,0,.52)}
-.sub{margin:0;max-width:560px;text-align:center;color:#e6d6b7;font-size:13px;line-height:1.55}
-.glass{width:100%;border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,rgba(255,237,190,.06),rgba(255,220,145,.018));backdrop-filter:blur(14px);box-shadow:0 24px 64px rgba(0,0,0,.32);overflow:hidden}
-.brand-card{padding:24px 20px 28px}.brand-card img{width:min(94vw,610px);margin:20px auto 0;filter:drop-shadow(0 20px 25px rgba(0,0,0,.48))}
-.shirt-card{padding:24px 18px 18px}.shirt-stage{min-height:425px;display:grid;place-items:center;border-radius:24px;background:radial-gradient(circle at 50% 32%,rgba(223,178,93,.06),transparent 44%),rgba(0,0,0,.08);overflow:hidden}.shirt-stage img{max-height:420px;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(0,0,0,.58))}
-.alunas-wrap{position:relative;width:100%;display:grid;place-items:center;padding:8px 0 0}.alunas-wrap:before{content:"";position:absolute;width:min(72vw,350px);height:min(72vw,350px);border-radius:50%;background:radial-gradient(circle,rgba(223,178,93,.10),transparent 64%);filter:blur(8px)}.alunas-wrap img{position:relative;z-index:1;width:min(96vw,610px);filter:drop-shadow(0 24px 30px rgba(0,0,0,.50))}
-.program-card{position:relative;width:100%;min-height:560px;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 25px 60px rgba(0,0,0,.35)}.program-bg{position:absolute;inset:0;background:url("assets/mae-programa.webp") center/cover no-repeat;opacity:.42}.program-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,6,3,.10),rgba(8,6,3,.76) 74%,rgba(8,6,3,.90))}.program-inner{position:relative;z-index:2;height:100%;min-height:560px;padding:24px 18px 8px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}.program-mockup{width:min(108%,640px);filter:drop-shadow(0 28px 32px rgba(0,0,0,.55));transform:translateY(12px)}
-.price-card{padding:18px}.prices{display:grid;gap:11px;margin-top:18px}.price{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;border-radius:21px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10)}.price-left{display:flex;align-items:center;gap:11px}.price img{width:46px;height:46px;object-fit:contain;padding:3px;border-radius:14px;background:rgba(255,255,255,.055)}.price-name{font-weight:900}.price-note{font-size:11px;color:#d7c397;margin-top:2px}.price-value{font-size:19px;font-weight:950;color:#ffe08a;white-space:nowrap}.price.total{background:linear-gradient(135deg,rgba(223,178,93,.15),rgba(255,255,255,.03));border-color:rgba(223,178,93,.32)}.price.total .price-name,.price.total .price-value{font-size:21px}
-.producer{width:92px;margin:20px auto 6px;opacity:.94;filter:drop-shadow(0 10px 20px rgba(0,0,0,.42))}.foot-note{margin:0;text-align:center;color:#d5c08f;font-size:11px;line-height:1.5}
-.cta-wrap{padding:0 14px 28px}.cta{display:flex;justify-content:center}.cta a{width:min(94vw,560px);padding:16px 20px;border-radius:999px;text-align:center;font-weight:950;background:linear-gradient(135deg,#23d366,#b8ffd1);color:#052713;box-shadow:0 18px 48px rgba(35,211,102,.30),0 0 0 1px rgba(255,255,255,.18) inset}.whats-note{margin:12px 0 0;text-align:center;color:#dac799;font-size:12px;line-height:1.4}
-.entry{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:24px;text-align:center;background:radial-gradient(circle at 50% 14%,rgba(223,178,93,.12),transparent 30%),rgba(8,6,3,.92);transition:.5s}.entry.hide{opacity:0;pointer-events:none}.entry-box{width:min(90vw,420px);padding:28px;border-radius:30px;background:rgba(10,8,5,.64);border:1px solid rgba(223,178,93,.22);backdrop-filter:blur(18px);box-shadow:0 30px 80px rgba(0,0,0,.45)}.entry-box img{width:260px;margin:0 auto 18px;filter:drop-shadow(0 0 18px rgba(255,255,255,.10))}.entry-box p{margin:0 0 18px;font-size:13px;line-height:1.6;letter-spacing:.16em;text-transform:uppercase;color:#f1e6cc}.entry-box button{border:0;border-radius:999px;padding:15px 28px;background:linear-gradient(135deg,#f7e9bc,#d6a043);color:#201104;font-weight:950;font-size:15px;box-shadow:0 16px 38px rgba(223,178,93,.20)}
-#privacyShield{position:fixed;inset:0;z-index:120;background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:24px;gap:12px;opacity:0;pointer-events:none;transition:opacity .25s ease}#privacyShield.show{opacity:1;pointer-events:auto}#privacyShield h3{margin:0;color:#fff;font-size:24px}#privacyShield p{margin:0;color:#d6c08d;line-height:1.5;max-width:360px}
-@media(min-width:640px){.screen{padding-inline:44px}.prices{grid-template-columns:1fr 1fr}.price:first-child,.price:last-child{grid-column:1/3}.shirt-stage{min-height:520px}.shirt-stage img{max-height:500px}.alunas-wrap img{width:560px}}
-@media print{body>*{display:none!important}.print-msg{display:block!important;color:#000;padding:40px;font-size:20px}}
-@keyframes twinkle{0%,100%{transform:scale(.5);opacity:.08}42%{transform:scale(1.18);opacity:.26}68%{transform:translateY(-5px) scale(.72);opacity:.12}}@keyframes haze{to{transform:translateX(6%) rotate(2deg)}}@keyframes heroFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.01)}}@keyframes softFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* FUNDO PRINCIPAL, SEM SITE CRU */
+.main-bg{position:fixed;inset:0;z-index:-12;background:url("assets/fundo-principal.webp") center center/cover no-repeat;filter:saturate(1.05) brightness(.70)}
+.main-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,3,2,.08),rgba(4,3,2,.25) 35%,rgba(4,3,2,.66) 100%),radial-gradient(circle at 50% 20%,rgba(223,178,93,.10),transparent 48%)}
+
+/* vídeo existe, mas o fundo dourado sustenta tudo */
+.site-video{position:fixed;inset:0;z-index:-11;overflow:hidden;mix-blend-mode:screen;opacity:.28}
+.site-video video{width:100%;height:100%;object-fit:cover;filter:saturate(.9) brightness(.62)}
+
+.app{position:relative;max-width:820px;margin:0 auto;overflow:hidden;background:linear-gradient(180deg,rgba(4,3,2,.08),rgba(4,3,2,.24));box-shadow:0 0 80px rgba(0,0,0,.38)}
+.screen{min-height:100svh;padding:34px 20px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:22px}
+.screen.compact{min-height:auto;padding-top:58px;padding-bottom:58px}
+.screen.tight{min-height:auto;padding-top:32px;padding-bottom:32px}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .85s ease,transform .85s ease}
+.reveal.on{opacity:1;transform:none}
+
+.hero{text-align:center;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.18))}
+.hero-art{width:min(92vw,660px);filter:drop-shadow(0 26px 28px rgba(0,0,0,.55));animation:floatHero 5.8s ease-in-out infinite}
+.scroll{margin-top:0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f4dca2;opacity:.9;animation:softFloat 2.8s ease-in-out infinite}
+
+.title{margin:0;text-align:center;font-family:var(--head);font-size:clamp(28px,7.2vw,46px);font-weight:700;line-height:1.05;letter-spacing:.02em;color:var(--gold2);text-shadow:0 10px 30px rgba(0,0,0,.62)}
+.glass{width:100%;border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,rgba(8,6,3,.62),rgba(8,6,3,.38));backdrop-filter:blur(8px);box-shadow:0 24px 64px rgba(0,0,0,.34);overflow:hidden}
+
+.brand-card{padding:24px 18px 28px}
+.brand-card img{width:min(96vw,650px);margin:22px auto 0;filter:drop-shadow(0 22px 28px rgba(0,0,0,.58))}
+
+.shirt-card{padding:24px 18px 20px}
+.shirt-stage{min-height:430px;display:grid;place-items:center;border-radius:24px;background:radial-gradient(circle at 50% 35%,rgba(223,178,93,.10),transparent 45%),rgba(0,0,0,.14);overflow:hidden}
+.shirt-stage img{max-height:430px;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(0,0,0,.58))}
+
+.alunas-wrap{position:relative;width:100%;display:grid;place-items:center;padding:8px 0 0}
+.alunas-wrap:before{content:"";position:absolute;width:min(80vw,390px);height:min(80vw,390px);border-radius:50%;background:radial-gradient(circle,rgba(223,178,93,.16),transparent 64%);filter:blur(8px)}
+.alunas-wrap img{position:relative;z-index:1;width:min(98vw,660px);filter:drop-shadow(0 26px 32px rgba(0,0,0,.55))}
+
+.program-card{position:relative;width:100%;min-height:570px;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 26px 70px rgba(0,0,0,.44);background:rgba(0,0,0,.2)}
+.program-bg{position:absolute;inset:0;background:url("assets/mae-programa.webp") center/cover no-repeat;opacity:.40}
+.program-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,6,3,.08),rgba(8,6,3,.62) 62%,rgba(8,6,3,.88))}
+.program-inner{position:relative;z-index:2;min-height:570px;padding:24px 18px 8px;display:flex;align-items:flex-end;justify-content:center}
+.program-mockup{width:min(110%,700px);filter:drop-shadow(0 30px 34px rgba(0,0,0,.58));transform:translateY(14px)}
+
+.price-card{padding:18px}.prices{display:grid;gap:11px;margin-top:18px}
+.price{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;border-radius:21px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+.price-left{display:flex;align-items:center;gap:11px}
+.price img{width:46px;height:46px;object-fit:contain;padding:3px;border-radius:14px;background:rgba(255,255,255,.06)}
+.price-name{font-weight:900}.price-note{font-size:11px;color:#dac89a;margin-top:2px}.price-value{font-size:19px;font-weight:950;color:#ffe08a;white-space:nowrap}
+.price.total{background:linear-gradient(135deg,rgba(223,178,93,.17),rgba(255,255,255,.04));border-color:rgba(223,178,93,.38)}
+.price.total .price-name,.price.total .price-value{font-size:21px}
+.producer{width:92px;margin:20px auto 6px;opacity:.94;filter:drop-shadow(0 10px 20px rgba(0,0,0,.42))}
+.foot-note{margin:0;text-align:center;color:#d8c293;font-size:11px;line-height:1.5}
+
+.cta-wrap{padding:0 14px 28px}.cta{display:flex;justify-content:center}
+.cta a{width:min(94vw,560px);padding:16px 20px;border-radius:999px;text-align:center;font-weight:950;background:linear-gradient(135deg,#23d366,#b8ffd1);color:#052713;box-shadow:0 18px 48px rgba(35,211,102,.30),0 0 0 1px rgba(255,255,255,.18) inset}
+
+.entry{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:24px;text-align:center;background:rgba(8,6,3,.70);transition:.5s}
+.entry.hide{opacity:0;pointer-events:none}
+.entry-box{width:min(90vw,420px);padding:28px;border-radius:30px;background:rgba(10,8,5,.54);border:1px solid rgba(223,178,93,.24);backdrop-filter:blur(18px);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.entry-box img{width:260px;margin:0 auto 18px;filter:drop-shadow(0 0 18px rgba(255,255,255,.10))}
+.entry-box p{margin:0 0 18px;font-size:13px;line-height:1.6;letter-spacing:.16em;text-transform:uppercase;color:#f1e6cc}
+.entry-box button{border:0;border-radius:999px;padding:15px 28px;background:linear-gradient(135deg,#f7e9bc,#d6a043);color:#201104;font-weight:950;font-size:15px;box-shadow:0 16px 38px rgba(223,178,93,.20)}
+#privacyShield{position:fixed;inset:0;z-index:120;background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:24px;gap:12px;opacity:0;pointer-events:none;transition:opacity .25s ease}
+#privacyShield.show{opacity:1;pointer-events:auto}
+#privacyShield h3{margin:0;color:#fff;font-size:24px}#privacyShield p{margin:0;color:#d6c08d;line-height:1.5;max-width:360px}
+@media(min-width:640px){.screen{padding-inline:44px}.prices{grid-template-columns:1fr 1fr}.price:first-child,.price:last-child{grid-column:1/3}.shirt-stage{min-height:520px}.shirt-stage img{max-height:500px}.alunas-wrap img{width:600px}}
+@keyframes floatHero{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.01)}}@keyframes softFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 </style>
 </head>
 <body oncontextmenu="return false">
-<div class="print-msg">Conteúdo exclusivo da proposta. Impressão desativada.</div>
-<div class="bg-video"><video autoplay muted loop playsinline preload="auto"><source src="assets/bg-video.mp4" type="video/mp4"></video></div><div class="bg-wall"></div><div class="bg-shade"></div><div class="bg-glow"></div><div class="fx" id="fx"></div>
+<div class="main-bg"></div>
+<div class="site-video"><video autoplay muted loop playsinline preload="auto"><source src="assets/bg-video.mp4" type="video/mp4"></video></div>
+
 <div id="privacyShield"><h3>Conteúdo protegido</h3><p>Entre em contato com Dariel Novack<br>(98) 98888-4997</p></div>
 <div class="entry" id="entry"><div class="entry-box"><img src="assets/logo-branca.webp" alt="Celebration"><p>Você foi convidado para entrar em uma celebração de brilho, dança e emoção</p><button id="startBtn">Entrar na celebração</button></div></div>
+
 <main class="app">
 <section class="screen hero">
-  <div class="hero-inner"><img class="hero-art scene-art" data-scroll-fade="0.9" src="assets/bailarina-dourada.webp" alt="Bailarina dourada Celebration"><p class="scroll">deslize para celebrar</p></div>
+  <img class="hero-art scene-art" data-scroll-fade="0.9" src="assets/hero-bailarina.webp" alt="Bailarina dourada Celebration">
+  <p class="scroll">deslize para celebrar</p>
 </section>
+
 <section class="screen reveal compact">
   <div class="glass brand-card">
     <h2 class="title">A marca oficial do espetáculo</h2>
     <img class="scene-art" data-scroll-fade="1.0" src="assets/logo-oficial.webp" alt="Marca oficial Celebration">
   </div>
 </section>
+
 <section class="screen reveal compact">
   <div class="glass shirt-card">
     <h2 class="title">Camisa do espetáculo</h2>
     <div class="shirt-stage"><img class="scene-art" data-scroll-fade="1.0" src="assets/camisa.webp" alt="Mockup da camisa Celebration"></div>
   </div>
 </section>
+
 <section class="screen tight reveal">
   <div class="alunas-wrap scene-art" data-scroll-fade="1.0"><img src="assets/alunas.webp" alt="Alunas vestindo a camisa Celebration"></div>
 </section>
+
 <section class="screen reveal compact">
   <div class="glass brand-card">
     <h2 class="title">Programa do espetáculo</h2>
     <div class="program-card"><div class="program-bg"></div><div class="program-inner"><img class="program-mockup scene-art" data-scroll-fade="1.0" src="assets/programa.webp" alt="Mockup do programa oficial Celebration"></div></div>
   </div>
 </section>
+
 <section class="screen compact reveal">
   <div class="glass price-card">
     <h2 class="title">Investimento</h2>
@@ -89,18 +135,19 @@ a{text-decoration:none;color:inherit}
   <img class="producer" src="assets/logo-producao.webp" alt="Logo de produção">
   <p class="foot-note">Proposta visual exclusiva para logo oficial, camisa e programa.</p>
 </section>
-<div class="cta-wrap"><div class="cta"><a href="https://wa.me/5598988884997?text=Proposta%20Celebration%20CMLS" target="_blank" rel="noopener">Chamar no WhatsApp</a></div><p class="whats-note">Chamada ao compartilhar no WhatsApp: <b>Proposta Celebration CMLS</b></p></div>
+
+<div class="cta-wrap"><div class="cta"><a href="https://wa.me/5598988884997?text=Proposta%20Celebration%20CMLS" target="_blank" rel="noopener">Chamar no WhatsApp</a></div></div>
 </main>
+
 <script>
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 document.addEventListener('selectstart',e=>e.preventDefault());document.addEventListener('copy',e=>e.preventDefault());document.addEventListener('cut',e=>e.preventDefault());document.addEventListener('dragstart',e=>e.preventDefault());document.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if((e.ctrlKey||e.metaKey)&&['s','p','u','c','x','a'].includes(k))e.preventDefault();if(k==='f12')e.preventDefault()});
 const shield=$('#privacyShield');document.addEventListener('visibilitychange',()=>{const hidden=document.hidden;document.body.style.filter=hidden?'blur(12px)':'';shield.classList.toggle('show',hidden)});window.addEventListener('blur',()=>shield.classList.add('show'));window.addEventListener('focus',()=>shield.classList.remove('show'));
-const fx=$('#fx');for(let i=0;i<14;i++){const s=document.createElement('i');s.className='spark';s.style.setProperty('--x',Math.random()*100+'%');s.style.setProperty('--y',Math.random()*100+'%');s.style.setProperty('--s',(2+Math.random()*5)+'px');s.style.setProperty('--d',(2+Math.random()*5)+'s');s.style.setProperty('--delay',(-Math.random()*5)+'s');fx.appendChild(s)}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.14});$$('.reveal').forEach(el=>io.observe(el));
-const data=[['Logo oficial','Criação da marca principal','assets/logo-oficial.webp','R$ 450'],['Camisa','Modelo oficial do espetáculo','assets/camisa.webp','R$ 80'],['Programa','Programa visual do espetáculo','assets/programa.webp','R$ 330'],['Total','Logo, camisa e programa','assets/logo-oficial.webp','R$ 860']];const prices=$('#prices');data.forEach((p,i)=>{const d=document.createElement('div');d.className='price'+(i===data.length-1?' total':'');d.innerHTML=`<div class="price-left"><img src="${p[2]}" alt=""><div><div class="price-name">${p[0]}</div><div class="price-note">${p[1]}</div></div></div><div class="price-value">${p[3]}</div>`;prices.appendChild(d)});
+const data=[['Logo oficial','Criação da marca principal','assets/logo-oficial.webp','R$ 450'],['Camisa','Modelo oficial do espetáculo','assets/camisa.webp','R$ 80'],['Programa','Programa visual do espetáculo','assets/programa.webp','R$ 330'],['Total','Logo, camisa e programa','assets/logo-oficial.webp','R$ 860']];
+const prices=$('#prices');data.forEach((p,i)=>{const d=document.createElement('div');d.className='price'+(i===data.length-1?' total':'');d.innerHTML=`<div class="price-left"><img src="${p[2]}" alt=""><div><div class="price-name">${p[0]}</div><div class="price-note">${p[1]}</div></div></div><div class="price-value">${p[3]}</div>`;prices.appendChild(d)});
 const entry=$('#entry'),startBtn=$('#startBtn');function start(){entry.classList.add('hide');setTimeout(()=>entry.remove(),520)}startBtn.addEventListener('click',start);
-const scrollArts=[...$$('[data-scroll-fade]')];function animateScrollArt(){const vh=window.innerHeight||1;scrollArts.forEach(el=>{const rect=el.getBoundingClientRect();const center=rect.top+rect.height/2;const dist=Math.abs((vh/2)-center);const range=vh*(parseFloat(el.dataset.scrollFade)||1);const t=Math.max(0,1-dist/range);const opacity=Math.max(.08,Math.min(1,t*1.18));const translate=(1-t)*28*((center<vh/2)?-1:1);const scale=.94+t*.08;el.style.opacity=opacity.toFixed(3);el.style.transform=`translateY(${translate.toFixed(1)}px) scale(${scale.toFixed(3)})`;});}
-window.addEventListener('scroll',animateScrollArt,{passive:true});window.addEventListener('resize',animateScrollArt);setTimeout(animateScrollArt,200);
+const scrollArts=[...$$('[data-scroll-fade]')];function animateScrollArt(){const vh=window.innerHeight||1;scrollArts.forEach(el=>{const rect=el.getBoundingClientRect();const center=rect.top+rect.height/2;const dist=Math.abs((vh/2)-center);const range=vh*(parseFloat(el.dataset.scrollFade)||1);const t=Math.max(0,1-dist/range);const opacity=Math.max(.08,Math.min(1,t*1.18));const translate=(1-t)*28*((center<vh/2)?-1:1);const scale=.94+t*.08;el.style.opacity=opacity.toFixed(3);el.style.transform=`translateY(${translate.toFixed(1)}px) scale(${scale.toFixed(3)})`;});}window.addEventListener('scroll',animateScrollArt,{passive:true});window.addEventListener('resize',animateScrollArt);setTimeout(animateScrollArt,200);
 </script>
 </body>
 </html>
